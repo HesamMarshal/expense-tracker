@@ -1,34 +1,53 @@
 import { useState } from "react";
 
-const TransactionForm = () => {
-  const [amount, setAmount] = useState(0);
-  const [description, setDescription] = useState("");
+const TransactionForm = ({ addTransaction }) => {
+  const [formValues, setFormValues] = useState({
+    type: "expense",
+    amount: 0,
+    description: "",
+  });
+
+  const changeHandler = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    addTransaction(formValues);
+  };
   return (
-    <form>
-      <input
-        type="text"
-        name="description"
-        value={description}
-        onChange={(e) => {
-          setDescription(e.target.value);
-        }}
-      />
+    <form onSubmit={submitHandler}>
       <input
         type="number"
         name="amount"
-        value={amount}
-        onChange={(e) => {
-          setAmount(e.target.value);
-        }}
+        value={formValues.amount}
+        onChange={changeHandler}
+      />
+      <input
+        type="text"
+        name="description"
+        value={formValues.description}
+        onChange={changeHandler}
       />
       <div>
-        <input type="radio" name="type" value="expense" />
+        <input
+          type="radio"
+          name="type"
+          value="expense"
+          checked={formValues.type === "expense"}
+          onChange={changeHandler}
+        />
         <label>Expense</label>
 
-        <input type="radio" name="type" value="income" />
+        <input
+          type="radio"
+          name="type"
+          value="income"
+          checked={formValues.type === "income"}
+          onChange={changeHandler}
+        />
         <label>Income</label>
       </div>
-      <button>Add Transaction</button>
+      <button type="submit">Add Transaction</button>
     </form>
   );
 };
