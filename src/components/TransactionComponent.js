@@ -1,5 +1,15 @@
 const TransactionComponent = ({ transactions }) => {
-  return <div>Transaction</div>;
+  return (
+    <section>
+      {transactions.map((tr) => (
+        <div key={tr.id}>{tr.description}</div>
+      ))}
+    </section>
+  );
+
+  {
+    transactions.map();
+  }
 };
 
 export default TransactionComponent;
