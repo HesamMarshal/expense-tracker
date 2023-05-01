@@ -15,7 +15,12 @@ const OverViewComponent = ({ income, expense, addTransaction }) => {
         </button>
       </div>
 
-      {isShow && <TransactionForm addTransaction={addTransaction} />}
+      {isShow && (
+        <TransactionForm
+          addTransaction={addTransaction}
+          setIsShow={setIsShow}
+        />
+      )}
       <div className="resultSection">
         <div className="expenseBox">
           Expnese <span style={{ color: "red" }}>${expense}</span>

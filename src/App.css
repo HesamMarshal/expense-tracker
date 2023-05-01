@@ -107,3 +107,14 @@ input[type="radio"] {
 .radioBox label {
   margin-left: 3px;
 }
+
+.transaction {
+  background-color: #e4e4e7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-right: 4px solid green;
+}
