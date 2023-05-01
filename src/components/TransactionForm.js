@@ -17,26 +17,27 @@ const TransactionForm = ({ addTransaction }) => {
   return (
     <form onSubmit={submitHandler}>
       <input
-        type="number"
-        name="amount"
-        value={formValues.amount}
-        onChange={changeHandler}
-      />
-      <input
         type="text"
         name="description"
         value={formValues.description}
         onChange={changeHandler}
       />
-      <div>
+      <input
+        type="number"
+        name="amount"
+        value={formValues.amount}
+        onChange={changeHandler}
+      />
+      <div className="radioBox">
         <input
           type="radio"
           name="type"
           value="expense"
           checked={formValues.type === "expense"}
           onChange={changeHandler}
+          id="expense"
         />
-        <label>Expense</label>
+        <label htmlFor="expense">Expense</label>
 
         <input
           type="radio"
@@ -44,8 +45,9 @@ const TransactionForm = ({ addTransaction }) => {
           value="income"
           checked={formValues.type === "income"}
           onChange={changeHandler}
+          id="income"
         />
-        <label>Income</label>
+        <label htmlFor="income">Income</label>
       </div>
       <button type="submit" className="btn primary">
         Add Transaction

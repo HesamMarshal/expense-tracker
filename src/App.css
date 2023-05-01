@@ -66,10 +66,44 @@
   color: #ecfccb;
   background-color: #3f6212;
   border: none;
+  padding: 6px 10px;
+  padding: 10px 0;
+
 }
 
 .cancel {
   background-color: #fff;
   color: #ef4444;
   border: 1px solid #ef4444;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  margin-bottom: 30px;
+
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+input[type="radio"] {
+  margin-left: 10px;
+}
+
+.radioBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+}
+
+.radioBox label {
+  margin-left: 3px;
 }
